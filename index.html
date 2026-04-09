@@ -1,151 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Austrian Immigration SSK Portal</title>
+  <title>SSK | Austrian Immigration Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      line-height: 1.6;
+    :root {
+      --primary: #6366f1; /* Indigo */
+      --secondary: #0f172a; /* Slate 900 */
+      --accent: #22d3ee; /* Cyan */
+      --bg: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.8);
     }
 
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--secondary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- MODERN NAVIGATION --- */
     header {
-      background: #c8102e;
-      color: white;
-      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 15px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    header h2 { margin: 0; font-size: 22px; }
-
-    nav {
-      display: flex;
-      align-items: center;
+    header h2 { 
+      margin: 0; 
+      font-weight: 800; 
+      letter-spacing: -1px; 
+      font-size: 24px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
+
+    nav { display: flex; align-items: center; }
 
     nav a {
-      color: white;
-      margin-left: 20px;
+      color: var(--secondary);
+      margin-left: 25px;
       text-decoration: none;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s;
     }
 
-    /* Language Toggle Button Style */
+    nav a:hover { color: var(--primary); }
+
     #lang-toggle {
-      margin-left: 20px;
-      padding: 6px 12px;
-      background-color: white;
-      color: #c8102e;
+      margin-left: 25px;
+      padding: 8px 16px;
+      background: var(--secondary);
+      color: white;
       border: none;
-      border-radius: 4px;
-      font-weight: bold;
+      border-radius: 20px;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s;
+      font-size: 12px;
+      transition: transform 0.2s;
     }
 
-    #lang-toggle:hover {
-      background-color: #f0f0f0;
-    }
+    #lang-toggle:hover { transform: scale(1.05); }
 
+    /* --- HERO SECTION --- */
     .hero {
       text-align: center;
-      padding: 80px 20px;
-      background: #f8f8f8;
+      padding: 120px 20px;
+      background: radial-gradient(circle at top right, #eef2ff, #ffffff);
     }
 
     .hero h1 {
-      font-size: 36px;
-      color: #c8102e;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
     }
 
     .hero p {
-      font-size: 18px;
-      color: #333;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto 40px;
     }
 
     .btn {
-      padding: 12px 25px;
+      padding: 16px 32px;
       margin: 10px;
-      border: none;
-      border-radius: 6px;
+      border-radius: 12px;
       cursor: pointer;
       font-size: 16px;
-      font-weight: bold;
+      font-weight: 600;
       text-decoration: none;
       display: inline-block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-primary {
-      background-color: #c8102e;
+      background: var(--primary);
       color: white;
+      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
     }
+
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4); }
 
     .btn-secondary {
-      background-color: white;
-      border: 1px solid #c8102e;
-      color: #c8102e;
+      background: white;
+      border: 1px solid #e2e8f0;
+      color: var(--secondary);
     }
 
-    .section {
-      padding: 60px 20px;
-      text-align: center;
-    }
+    .btn-secondary:hover { background: #f1f5f9; }
+
+    /* --- BENTO GRID FEATURES --- */
+    .section { padding: 100px 5%; }
 
     .features {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .feature {
       background: white;
-      padding: 20px;
-      width: 280px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: left;
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid #f1f5f9;
+      transition: all 0.3s;
+      position: relative;
     }
 
-    .highlight-box {
-      background: #fdecea;
-      border: 1px solid #f5c6cb;
-      padding: 30px;
-      border-radius: 8px;
-      max-width: 800px;
-      margin: 20px auto;
+    .feature:hover {
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
 
-    .hiring-section {
-      background: #e6f4ea;
-      border: 1px solid #c6e7d1;
-      padding: 30px;
-      margin-top: 40px;
-      color: #137333;
-    }
+    .feature h3 { margin-top: 0; font-size: 1.4rem; }
 
-    footer {
-      background: #c8102e;
+    /* --- CTA EVALUATION BOX --- */
+    .eval-card {
+      background: var(--secondary);
       color: white;
+      padding: 60px 40px;
+      border-radius: 32px;
+      max-width: 1000px;
+      margin: 60px auto;
       text-align: center;
-      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
     }
+
+    .eval-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+    }
+
+    /* --- HIRING BANNER --- */
+    .hiring-section {
+      background: #f0fdf4;
+      border-radius: 24px;
+      padding: 40px;
+      margin-top: 80px;
+      border: 1px solid #dcfce7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 80px 5% 40px;
+    }
+
+    footer h3 { color: white; }
+
+    footer a { color: #94a3b8; transition: color 0.3s; }
+    footer a:hover { color: var(--accent); }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <h2>SSK Portal</h2>
+  <h2>SSK PORTAL</h2>
   <nav>
     <a href="login.html" class="lang" data-en="Login" data-de="Anmelden">Login</a>
     <a href="register.html" class="lang" data-en="Register" data-de="Registrieren">Register</a>
@@ -156,114 +214,88 @@
 </header>
 
 <section class="hero">
-  <h1 class="lang" data-en="Austrian Immigration Portal" data-de="Österreichisches Einwanderungsportal">Austrian Immigration Portal</h1>
-  <p class="lang" data-en="Immigration Awareness & Authentication Platform" data-de="Plattform für Einwanderungsbewusstsein & Authentifizierung">Immigration Awareness & Authentication Platform</p>
-
-  <a href="login.html" class="btn btn-primary lang" data-en="Login" data-de="Anmelden">Login</a>
-  <a href="register.html" class="btn btn-secondary lang" data-en="Register" data-de="Registrieren">Register</a>
-</section>
-
-<section class="section" style="background: #ffffff; padding: 80px 20px;">
-  <div style="max-width: 1000px; margin: auto;">
-    
-    <h2 class="lang" data-en="Do you want to immigrate?" data-de="Möchten Sie einwandern?" style="font-size: 2.5rem; color: #1a1a1a; margin-bottom: 10px;">Do you want to immigrate?</h2>
-    <p class="lang" data-en="We help the right people to immigrate the right way. We specialize in high-tier relocation pathways for excellence." data-de="Wir helfen den richtigen Menschen, auf dem richtigen Weg einzuwandern. Wir sind auf erstklassige Umsiedlungswege für Spitzenkräfte spezialisiert." style="font-size: 1.2rem; color: #666; margin-bottom: 50px;">
-      We help the right people to immigrate the right way. We specialize in high-tier relocation pathways for excellence.
-    </p>
-
-    <div class="features" style="margin-bottom: 50px;">
-      <div class="feature" style="border-top: 4px solid #c8102e;">
-        <h3 class="lang" data-en="🎓 Study" data-de="🎓 Studium" style="display: flex; align-items: center; gap: 10px;">🎓 Study</h3>
-        <p class="lang" data-en="University placements and student residency for high-achieving academic applicants." data-de="Universitätsvermittlung und studentische Aufenthaltsgenehmigungen für leistungsstarke akademische Bewerber.">University placements and student residency for high-achieving academic applicants.</p>
-      </div>
-
-      <div class="feature" style="border-top: 4px solid #c8102e;">
-        <h3 class="lang" data-en="💼 Business & Investors" data-de="💼 Wirtschaft & Investoren" style="display: flex; align-items: center; gap: 10px;">💼 Business & Investors</h3>
-        <p class="lang" data-en="Strategic migration for businessmen, entrepreneurs, and those bringing capital to the economy." data-de="Strategische Migration für Geschäftsleute, Unternehmer und solche, die Kapital in die Wirtschaft bringen.">Strategic migration for businessmen, entrepreneurs, and those bringing capital to the economy.</p>
-      </div>
-
-      <div class="feature" style="border-top: 4px solid #c8102e;">
-        <h3 class="lang" data-en="🩺 High-Level Experts" data-de="🩺 Hochqualifizierte Experten" style="display: flex; align-items: center; gap: 10px;">🩺 High-Level Experts</h3>
-        <p class="lang" data-en="Direct pathways for doctors, legal specialists, and global healthcare professionals." data-de="Direkte Wege für Ärzte, Rechtsexperten und globale Fachkräfte im Gesundheitswesen.">Direct pathways for doctors, legal specialists, and global healthcare professionals.</p>
-      </div>
-
-      <div class="feature" style="border-top: 4px solid #c8102e;">
-        <h3 class="lang" data-en="🌟 Smart Talent" data-de="🌟 Smarte Talente" style="display: flex; align-items: center; gap: 10px;">🌟 Smart Talent</h3>
-        <p class="lang" data-en="Elite athletes, tech innovators, and future talents together with their families." data-de="Spitzensportler, Tech-Innovatoren und zukünftige Talente zusammen mit ihren Familien.">Elite athletes, tech innovators, and future talents together with their families.</p>
-      </div>
-    </div>
-
-    <div style="background: #fdfdfd; border: 1px solid #e1e1e1; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 850px; margin: auto;">
-      <h3 class="lang" data-en="Apply for Profile Evaluation" data-de="Profilbewertung beantragen" style="font-size: 1.5rem; color: #c8102e; margin-bottom: 15px;">Apply for Profile Evaluation</h3>
-      <p class="lang" data-en="Please send us your <strong>CV, Motivation Letter, and relevant Certificates</strong>. Our team will review your documentation and contact selected profiles that match our strict legal and professional requirements." data-de="Bitte senden Sie uns Ihren <strong>Lebenslauf, Ihr Motivationsschreiben und relevante Zeugnisse</strong>. Unser Team wird Ihre Unterlagen prüfen und ausgewählte Profile kontaktieren, die unseren strengen rechtlichen und beruflichen Anforderungen entsprechen." style="font-size: 1.1rem; color: #444; line-height: 1.8; margin-bottom: 25px;">
-        Please send us your <strong>CV, Motivation Letter, and relevant Certificates</strong>. 
-        Our team will review your documentation and contact selected profiles that match our strict legal and professional requirements.
-      </p>
-      
-      <a href="mailto:immigration@austrian-immigration.com?subject=Profile Evaluation Request" 
-         class="btn btn-primary lang" 
-         data-en="Submit My Documents" 
-         data-de="Meine Dokumente einreichen"
-         style="padding: 18px 45px; font-size: 1.1rem; border-radius: 50px; transition: transform 0.2s;">
-         Submit My Documents
-      </a>
-    </div>
-
+  <h1 class="lang" data-en="Austrian Immigration" data-de="Österreichische Einwanderung">Austrian Immigration</h1>
+  <p class="lang" data-en="A next-generation awareness and authentication platform for high-tier relocation." data-de="Eine Awareness- und Authentifizierungsplattform der nächsten Generation für hochkarätige Umsiedlungen.">A next-generation awareness and authentication platform for high-tier relocation.</p>
+  <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+    <a href="login.html" class="btn btn-primary lang" data-en="Get Started" data-de="Anfangen">Get Started</a>
+    <a href="register.html" class="btn btn-secondary lang" data-en="Create Account" data-de="Konto erstellen">Create Account</a>
   </div>
-</section>
-
-<section class="section" id="about" style="background: #f8f8f8;">
-  <h2 class="lang" data-en="About This Platform" data-de="Über diese Plattform">About This Platform</h2>
-  <p class="lang" data-en="This platform is designed to handle immigrant issues in one place." data-de="Diese Plattform wurde entwickelt, um Einwanderungsfragen an einem Ort zu behandeln." style="max-width:600px; margin:auto;">
-    This platform is designed to handle immigrant issues in one place.
-  </p>
 </section>
 
 <section class="section">
-  <h2 class="lang" data-en="What You need to Expect" data-de="Was Sie erwarten können">What You need to Expect</h2>
+  <div style="text-align: center; margin-bottom: 60px;">
+    <h2 class="lang" data-en="Elite Pathways" data-de="Elite-Wege" style="font-size: 2.5rem;">Elite Pathways</h2>
+    <p class="lang" data-en="We specialize in relocation for excellence." data-de="Wir sind auf erstklassige Umsiedlungen spezialisiert.">We specialize in relocation for excellence.</p>
+  </div>
+
   <div class="features">
     <div class="feature">
-      <h3 class="lang" data-en="🔐 Recognize Immigrants status" data-de="🔐 Einwandererstatus erkennen">🔐 Recognize Immigrants status</h3>
-      <p class="lang" data-en="Understand what the immigrants really do in their life and what is hidden from us." data-de="Verstehen Sie, was Einwanderer wirklich in ihrem Leben tun und was vor uns verborgen bleibt.">Understand what the immigrants really do in their life and what is hidden from us.</p>
+      <h3 class="lang" data-en="🎓 Academic Study" data-de="🎓 Studium">🎓 Academic Study</h3>
+      <p class="lang" data-en="University placements and student residency for high-achieving applicants." data-de="Universitätsvermittlung und studentische Aufenthaltsgenehmigungen für leistungsstarke Bewerber.">University placements and student residency for high-achieving applicants.</p>
     </div>
     <div class="feature">
-      <h3 class="lang" data-en="⚠️ Stay Safe" data-de="⚠️ Bleiben Sie sicher">⚠️ Stay Safe</h3>
-      <p class="lang" data-en="Learn how to follow the Right Process to report safely." data-de="Lernen Sie, wie Sie den richtigen Prozess befolgen, um sicher zu melden.">Learn how to follow the Right Process to report safely.</p>
+      <h3 class="lang" data-en="💼 Business & Capital" data-de="💼 Wirtschaft & Kapital">💼 Business & Capital</h3>
+      <p class="lang" data-en="Strategic migration for entrepreneurs bringing capital to the economy." data-de="Strategische Migration für Unternehmer, die Kapital in die Wirtschaft bringen.">Strategic migration for entrepreneurs bringing capital to the economy.</p>
     </div>
     <div class="feature">
-      <h3 class="lang" data-en="📊 Awareness" data-de="📊 Bewusstsein">📊 Awareness</h3>
-      <p class="lang" data-en="Improve spreading of awareness in our Country!" data-de="Verbessern Sie die Verbreitung des Bewusstseins in unserem Land!">Improve spreading of awareness in our Country!</p>
+      <h3 class="lang" data-en="🩺 Healthcare Experts" data-de="🩺 Gesundheitsexperten">🩺 Healthcare Experts</h3>
+      <p class="lang" data-en="Direct pathways for doctors and global healthcare professionals." data-de="Direkte Wege für Ärzte und globale Fachkräfte im Gesundheitswesen.">Direct pathways for doctors and global healthcare professionals.</p>
+    </div>
+    <div class="feature">
+      <h3 class="lang" data-en="🌟 Innovation Talent" data-de="🌟 Innovations-Talent">🌟 Innovation Talent</h3>
+      <p class="lang" data-en="Tech innovators and future talents together with their families." data-de="Tech-Innovatoren und zukünftige Talente zusammen mit ihren Familien.">Tech innovators and future talents together with their families.</p>
     </div>
   </div>
 
-  <div class="hiring-section" style="max-width: 800px; margin: 40px auto; border-radius: 8px;">
-    <h3 class="lang" data-en="🚀 We are hiring!" data-de="🚀 Wir stellen ein!">🚀 We are hiring!</h3>
-    <p class="lang" data-en="Join our team. We offer Visa support for non-EU applicants, a €3,000 education budget, and your choice of laptop/smartphone." data-de="Werden Sie Teil unseres Teams. Wir bieten Visa-Unterstützung für Nicht-EU-Bewerber, ein Bildungsbudget von 3.000 € und Ihre Wahl zwischen Laptop/Smartphone.">Join our team. We offer Visa support for non-EU applicants, a €3,000 education budget, and your choice of laptop/smartphone.</p>
-    <a href="jobs.html" class="lang" data-en="Check Open Positions →" data-de="Offene Stellen ansehen →" style="color: #137333; font-weight: bold; text-decoration: none;">Check Open Positions →</a>
+  <div class="eval-card">
+    <h3 class="lang" data-en="Profile Evaluation" data-de="Profilbewertung">Profile Evaluation</h3>
+    <p class="lang" data-en="Submit your CV and Motivation Letter for a legal review by our expert team." data-de="Reichen Sie Ihren Lebenslauf und Ihr Motivationsschreiben zur rechtlichen Prüfung durch unser Expertenteam ein.">Submit your CV and Motivation Letter for a legal review by our expert team.</p>
+    <br>
+    <a href="mailto:immigration@austrian-immigration.com?subject=Profile Evaluation Request" 
+       class="btn btn-primary lang" 
+       data-en="Submit My Documents" 
+       data-de="Meine Dokumente einreichen">
+       Submit My Documents
+    </a>
   </div>
 </section>
 
-<section class="section" id="contact" style="background: #f8f8f8;">
-  <h2 class="lang" data-en="Contact" data-de="Kontakt">Contact</h2>
-  <p class="lang" data-en="Email: info@austrian-immigration.com" data-de="E-Mail: info@austrian-immigration.com">Email: info@austrian-immigration.com</p>
-  <p class="lang" data-en="Email: austrianimmigrations.@gmail.com" data-de="E-Mail: austrianimmigrations.@gmail.com">Email: austrianimmigrations.@gmail.com</p>
+<section class="section" id="about" style="background: white;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 class="lang" data-en="Unified Platform" data-de="Einheitliche Plattform">Unified Platform</h2>
+        <p class="lang" data-en="This platform handles immigrant issues and awareness in one centralized ecosystem." data-de="Diese Plattform behandelt Einwanderungsfragen und das Bewusstsein in einem zentralisierten Ökosystem.">This platform handles immigrant issues and awareness in one centralized ecosystem.</p>
+        
+        <div class="features" style="margin-top: 50px;">
+            <div class="feature">
+                <h4 class="lang" data-en="🔐 Status Check" data-de="🔐 Statusprüfung">🔐 Status Check</h4>
+                <p class="lang" data-en="Understand hidden status factors." data-de="Verstehen Sie verborgene Statusfaktoren.">Understand hidden status factors.</p>
+            </div>
+            <div class="feature">
+                <h4 class="lang" data-en="⚠️ Safe Reporting" data-de="⚠️ Sicher melden">⚠️ Safe Reporting</h4>
+                <p class="lang" data-en="Follow the correct legal process." data-de="Folgen Sie dem korrekten rechtlichen Verfahren.">Follow the correct legal process.</p>
+            </div>
+        </div>
+
+        <div class="hiring-section">
+            <h3 class="lang" data-en="🚀 We are hiring!" data-de="🚀 Wir stellen ein!">🚀 We are hiring!</h3>
+            <p class="lang" data-en="Visa support + €3,000 budget." data-de="Visa-Support + 3.000 € Budget.">Visa support + €3,000 budget.</p>
+            <a href="jobs.html" class="lang" data-en="View Careers →" data-de="Karriere ansehen →" style="color: #166534; font-weight: 700; text-decoration: none;">View Careers →</a>
+        </div>
+    </div>
 </section>
 
 <footer>
-  <div style="max-width: 1000px; margin: auto;">
-    <div style="margin-bottom: 25px;">
-      <h3 style="margin-bottom: 10px;">SSK Portal Austria</h3>
-      <p class="lang" data-en="Official Study & Awareness Platform for Immigrants" data-de="Offizielle Studien- und Bewusstseinsplattform für Einwanderer" style="font-size: 13px; opacity: 0.8;">Official Study & Awareness Platform for Immigrants</p>
+  <div style="max-width: 1200px; margin: auto; text-align: center;">
+    <h3>SSK Portal Austria</h3>
+    <p class="lang" data-en="Official Awareness Platform" data-de="Offizielle Bewusstseinsplattform">Official Awareness Platform</p>
+    <div style="margin: 30px 0;">
+      <a href="jobs.html" class="lang" data-en="Careers" data-de="Karriere">Careers</a> | 
+      <a href="terms.html" class="lang" data-en="Terms" data-de="Bedingungen">Terms</a> | 
+      <a href="fullmacht.html" class="lang" data-en="Fullmacht" data-de="Vollmacht">Fullmacht</a>
     </div>
-
-    <nav style="margin-bottom: 30px; justify-content: center;">
-      <a href="jobs.html" class="lang" data-en="Careers" data-de="Karriere" style="color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px;">Careers</a>
-      <a href="terms.html" class="lang" data-en="Terms & Conditions" data-de="Allgemeine Geschäftsbedingungen" style="color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px;">Terms & Conditions</a>
-      <a href="fullmacht.html" class="lang" data-en="Fullmacht" data-de="Vollmacht" style="color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px;">Fullmacht</a>
-    </nav>
-
-    <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px; font-size: 12px; opacity: 0.7;">
-      <p class="lang" data-en="© 2026 Austrian Immigration SSK Portal. All Rights Reserved. | Managed for Research Purposes" data-de="© 2026 Austrian Immigration SSK Portal. Alle Rechte vorbehalten. | Verwaltet zu Forschungszwecken">© 2026 Austrian Immigration SSK Portal. All Rights Reserved. | Managed for Research Purposes</p>
+    <div style="font-size: 12px; opacity: 0.5; border-top: 1px solid #1e293b; padding-top: 20px;">
+      <p>© 2026 Austrian Immigration SSK Portal.</p>
+      <p>info@austrian-immigration.com</p>
     </div>
   </div>
 </footer>
@@ -273,15 +305,9 @@
     const btn = document.getElementById('lang-toggle');
     const currentLang = btn.getAttribute('data-current');
     const targetLang = currentLang === 'en' ? 'de' : 'en';
-    
-    // Update button visual
     btn.innerText = targetLang === 'en' ? 'DE' : 'EN';
     btn.setAttribute('data-current', targetLang);
-    
-    // Update the document language tag
     document.documentElement.lang = targetLang;
-
-    // Swap text for all elements with the 'lang' class
     const elements = document.querySelectorAll('.lang');
     elements.forEach(el => {
       el.innerHTML = el.getAttribute('data-' + targetLang);
@@ -289,27 +315,7 @@
   }
 </script>
 
-<script>
-  async function getUserInfo() {
-    try {
-      const res = await fetch("https://ipapi.co/json/");
-      const data = await res.json();
-
-      return {
-        ip: data.ip,
-        country: data.country_name,
-        city: data.city,
-      };
-      } catch (error) {
-        return {
-          ip: "unknown",
-          country: "unknown",
-          city: "unknown"
-        };
-      }
-    }
-  </script>
-  <script type="module">
+<script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
@@ -324,52 +330,41 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    window.db = db; // 👈 important
+    window.db = db;
     window.collection = collection;
     window.addDoc = addDoc;
-  </script>
+</script>
 
 <script>
 window.addEventListener("load", async function() {
   try {
-
     let sessionId = localStorage.getItem("sessionId");
-
     if (!sessionId) {
       sessionId = crypto.randomUUID();
       localStorage.setItem("sessionId", sessionId);
     }
-
-    // wait until firebase is ready
     if (!window.db) {
-      console.log("Waiting for Firebase...");
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
-
     const res = await fetch("https://ipapi.co/json/");
     const data = await res.json();
 
-  await window.addDoc(window.collection(window.db, "visitors"), {
-    ip: data.ip,
-    country: data.country_name,
-    city: data.city,
-    sessionId: sessionId,
-    userAgent: navigator.userAgent,
-    language: navigator.language,
-    platform: navigator.platform,
-    screen: screen.width + "x" + screen.height,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-
-    cookiesEnabled: navigator.cookieEnabled,
-    hardwareConcurrency: navigator.hardwareConcurrency, // CPU cores
-
-    referrer: document.referrer,
-
-    timestamp: Date.now()
-  });
-
+    await window.addDoc(window.collection(window.db, "visitors"), {
+        ip: data.ip,
+        country: data.country_name,
+        city: data.city,
+        sessionId: sessionId,
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        screen: screen.width + "x" + screen.height,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        cookiesEnabled: navigator.cookieEnabled,
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        referrer: document.referrer,
+        timestamp: Date.now()
+    });
     console.log("Visitor saved:", data.ip);
-
   } catch (e) {
     console.log("Visitor tracking error:", e);
   }
