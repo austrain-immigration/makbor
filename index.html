@@ -23,7 +23,6 @@
       overflow-x: hidden;
     }
 
-    /* --- MODERN NAVIGATION --- */
     header {
       position: sticky;
       top: 0;
@@ -75,7 +74,6 @@
 
     #lang-toggle:hover { transform: scale(1.05); }
 
-    /* --- HERO SECTION --- */
     .hero {
       text-align: center;
       padding: 120px 20px;
@@ -124,7 +122,6 @@
 
     .btn-secondary:hover { background: #f1f5f9; }
 
-    /* --- BENTO GRID FEATURES --- */
     .section { padding: 100px 5%; }
 
     .features {
@@ -147,11 +144,12 @@
     .feature:hover {
       border-color: var(--primary);
       box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      transform: translateY(-5px);
     }
 
-    .feature h3 { margin-top: 0; font-size: 1.4rem; }
+    .feature h3, .feature h4 { margin-top: 0; font-size: 1.4rem; color: var(--secondary); }
+    .feature p { color: #64748b; }
 
-    /* --- CTA EVALUATION BOX --- */
     .eval-card {
       background: var(--secondary);
       color: white;
@@ -172,20 +170,19 @@
       background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
     }
 
-    /* --- HIRING BANNER --- */
-    .hiring-section {
-      background: #f0fdf4;
+    /* --- NEW BANNER STYLE --- */
+    .consultation-section {
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
       border-radius: 24px;
-      padding: 40px;
+      padding: 50px;
       margin-top: 80px;
-      border: 1px solid #dcfce7;
+      border: 1px solid #c7d2fe;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
 
-    /* --- FOOTER --- */
     footer {
       background: #020617;
       color: #94a3b8;
@@ -224,26 +221,22 @@
 
 <section class="section">
   <div style="text-align: center; margin-bottom: 60px;">
-    <h2 class="lang" data-en="Elite Pathways" data-de="Elite-Wege" style="font-size: 2.5rem;">Elite Pathways</h2>
-    <p class="lang" data-en="We specialize in relocation for excellence." data-de="Wir sind auf erstklassige Umsiedlungen spezialisiert.">We specialize in relocation for excellence.</p>
+    <h2 class="lang" data-en="Your Relocation Journey" data-de="Ihre Umsiedlungsreise" style="font-size: 2.5rem;">Your Relocation Journey</h2>
+    <p class="lang" data-en="A streamlined, three-step process to secure your new life in Austria." data-de="Ein optimierter, dreistufiger Prozess zur Sicherung Ihres neuen Lebens in Österreich.">A streamlined, three-step process to secure your new life in Austria.</p>
   </div>
 
   <div class="features">
     <div class="feature">
-      <h3 class="lang" data-en="🎓 Academic Study" data-de="🎓 Studium">🎓 Academic Study</h3>
-      <p class="lang" data-en="University placements and student residency for high-achieving applicants." data-de="Universitätsvermittlung und studentische Aufenthaltsgenehmigungen für leistungsstarke Bewerber.">University placements and student residency for high-achieving applicants.</p>
+      <h3 class="lang" data-en="1. Initial Assessment" data-de="1. Ersteinschätzung">1. Initial Assessment</h3>
+      <p class="lang" data-en="We evaluate your qualifications, goals, and eligibility for various Austrian visa types." data-de="Wir bewerten Ihre Qualifikationen, Ziele und Berechtigung für verschiedene österreichische Visatypen.">We evaluate your qualifications, goals, and eligibility for various Austrian visa types.</p>
     </div>
     <div class="feature">
-      <h3 class="lang" data-en="💼 Business & Capital" data-de="💼 Wirtschaft & Kapital">💼 Business & Capital</h3>
-      <p class="lang" data-en="Strategic migration for entrepreneurs bringing capital to the economy." data-de="Strategische Migration für Unternehmer, die Kapital in die Wirtschaft bringen.">Strategic migration for entrepreneurs bringing capital to the economy.</p>
+      <h3 class="lang" data-en="2. Legal Preparation" data-de="2. Rechtliche Vorbereitung">2. Legal Preparation</h3>
+      <p class="lang" data-en="Our team assists in compiling, translating, and authenticating all necessary paperwork." data-de="Unser Team unterstützt Sie bei der Zusammenstellung, Übersetzung und Beglaubigung aller notwendigen Unterlagen.">Our team assists in compiling, translating, and authenticating all necessary paperwork.</p>
     </div>
     <div class="feature">
-      <h3 class="lang" data-en="🩺 Healthcare Experts" data-de="🩺 Gesundheitsexperten">🩺 Healthcare Experts</h3>
-      <p class="lang" data-en="Direct pathways for doctors and global healthcare professionals." data-de="Direkte Wege für Ärzte und globale Fachkräfte im Gesundheitswesen.">Direct pathways for doctors and global healthcare professionals.</p>
-    </div>
-    <div class="feature">
-      <h3 class="lang" data-en="🌟 Innovation Talent" data-de="🌟 Innovations-Talent">🌟 Innovation Talent</h3>
-      <p class="lang" data-en="Tech innovators and future talents together with their families." data-de="Tech-Innovatoren und zukünftige Talente zusammen mit ihren Familien.">Tech innovators and future talents together with their families.</p>
+      <h3 class="lang" data-en="3. Arrival & Settlement" data-de="3. Ankunft & Niederlassung">3. Arrival & Settlement</h3>
+      <p class="lang" data-en="We handle the application process and provide on-the-ground support once you arrive." data-de="Wir übernehmen den Bewerbungsprozess und bieten Unterstützung vor Ort, sobald Sie ankommen.">We handle the application process and provide on-the-ground support once you arrive.</p>
     </div>
   </div>
 
@@ -261,25 +254,29 @@
 </section>
 
 <section class="section" id="about" style="background: white;">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <h2 class="lang" data-en="Unified Platform" data-de="Einheitliche Plattform">Unified Platform</h2>
-        <p class="lang" data-en="This platform handles immigrant issues and awareness in one centralized ecosystem." data-de="Diese Plattform behandelt Einwanderungsfragen und das Bewusstsein in einem zentralisierten Ökosystem.">This platform handles immigrant issues and awareness in one centralized ecosystem.</p>
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 class="lang" data-en="Why Choose Austria?" data-de="Warum Österreich wählen?">Why Choose Austria?</h2>
+        <p class="lang" data-en="Consistently ranked as one of the best places to live and work globally." data-de="Zählt weltweit durchgehend zu den besten Orten zum Leben und Arbeiten.">Consistently ranked as one of the best places to live and work globally.</p>
         
         <div class="features" style="margin-top: 50px;">
             <div class="feature">
-                <h4 class="lang" data-en="🔐 Status Check" data-de="🔐 Statusprüfung">🔐 Status Check</h4>
-                <p class="lang" data-en="Understand hidden status factors." data-de="Verstehen Sie verborgene Statusfaktoren.">Understand hidden status factors.</p>
+                <h4 class="lang" data-en="🌍 Central European Hub" data-de="🌍 Zentraleuropäischer Knotenpunkt">🌍 Central European Hub</h4>
+                <p class="lang" data-en="Access to the entire EU market with world-class infrastructure." data-de="Zugang zum gesamten EU-Markt mit erstklassiger Infrastruktur.">Access to the entire EU market with world-class infrastructure.</p>
             </div>
             <div class="feature">
-                <h4 class="lang" data-en="⚠️ Safe Reporting" data-de="⚠️ Sicher melden">⚠️ Safe Reporting</h4>
-                <p class="lang" data-en="Follow the correct legal process." data-de="Folgen Sie dem korrekten rechtlichen Verfahren.">Follow the correct legal process.</p>
+                <h4 class="lang" data-en="🛡️ High Quality of Life" data-de="🛡️ Hohe Lebensqualität">🛡️ High Quality of Life</h4>
+                <p class="lang" data-en="Vienna is frequently named the world's most livable city." data-de="Wien wird häufig als die lebenswerteste Stadt der Welt ausgezeichnet.">Vienna is frequently named the world's most livable city.</p>
+            </div>
+            <div class="feature">
+                <h4 class="lang" data-en="📈 Strong Economy" data-de="📈 Starke Wirtschaft">📈 Strong Economy</h4>
+                <p class="lang" data-en="Robust industries, social security, and excellent healthcare." data-de="Robuste Industrien, soziale Sicherheit und hervorragende Gesundheitsversorgung.">Robust industries, social security, and excellent healthcare.</p>
             </div>
         </div>
 
-        <div class="hiring-section">
-            <h3 class="lang" data-en="🚀 We are hiring!" data-de="🚀 Wir stellen ein!">🚀 We are hiring!</h3>
-            <p class="lang" data-en="Visa support + €3,000 budget." data-de="Visa-Support + 3.000 € Budget.">Visa support + €3,000 budget.</p>
-            <a href="jobs.html" class="lang" data-en="View Careers →" data-de="Karriere ansehen →" style="color: #166534; font-weight: 700; text-decoration: none;">View Careers →</a>
+        <div class="consultation-section" style="max-width: 800px; margin: 80px auto 0;">
+            <h3 class="lang" data-en="📅 Ready to take the next step?" data-de="📅 Bereit für den nächsten Schritt?" style="margin-top: 0; color: var(--secondary);">📅 Ready to take the next step?</h3>
+            <p class="lang" data-en="Book a priority consultation with our senior immigration advisors today." data-de="Buchen Sie noch heute eine prioritäre Beratung mit unseren erfahrenen Einwanderungsberatern." style="color: #475569; margin-bottom: 25px;">Book a priority consultation with our senior immigration advisors today.</p>
+            <a href="mailto:info@austrian-immigration.com" class="btn btn-primary lang" data-en="Schedule a Call →" data-de="Einen Anruf vereinbaren →">Schedule a Call →</a>
         </div>
     </div>
 </section>
