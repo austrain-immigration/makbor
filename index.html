@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>SSK | Austrian Immigration Portal</title>
+  <title>SSK | Community Safety Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
@@ -23,6 +23,7 @@
       overflow-x: hidden;
     }
 
+    /* --- MODERN NAVIGATION --- */
     header {
       position: sticky;
       top: 0;
@@ -74,6 +75,7 @@
 
     #lang-toggle:hover { transform: scale(1.05); }
 
+    /* --- HERO SECTION --- */
     .hero {
       text-align: center;
       padding: 120px 20px;
@@ -122,6 +124,7 @@
 
     .btn-secondary:hover { background: #f1f5f9; }
 
+    /* --- BENTO GRID FEATURES --- */
     .section { padding: 100px 5%; }
 
     .features {
@@ -150,26 +153,6 @@
     .feature h3, .feature h4 { margin-top: 0; font-size: 1.4rem; color: var(--secondary); }
     .feature p { color: #64748b; }
 
-    .eval-card {
-      background: var(--secondary);
-      color: white;
-      padding: 60px 40px;
-      border-radius: 32px;
-      max-width: 1000px;
-      margin: 60px auto;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .eval-card::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
-    }
-
     /* --- NEW BANNER STYLE --- */
     .consultation-section {
       background: linear-gradient(135deg, #eef2ff, #e0e7ff);
@@ -183,6 +166,7 @@
       text-align: center;
     }
 
+    /* --- FOOTER --- */
     footer {
       background: #020617;
       color: #94a3b8;
@@ -205,94 +189,57 @@
     <a href="login.html" class="lang" data-en="Login" data-de="Anmelden">Login</a>
     <a href="register.html" class="lang" data-en="Register" data-de="Registrieren">Register</a>
     <a href="#about" class="lang" data-en="About" data-de="Über uns">About</a>
-    <a href="jobs.html" class="lang" data-en="Careers" data-de="Karriere">Careers</a>
     <button id="lang-toggle" data-current="en" onclick="toggleLanguage()">DE</button>
   </nav>
 </header>
 
 <section class="hero">
-  <h1 class="lang" data-en="Austrian Immigration" data-de="Österreichische Einwanderung">Austrian Immigration</h1>
-  <p class="lang" data-en="A next-generation awareness and authentication platform for high-tier relocation." data-de="Eine Awareness- und Authentifizierungsplattform der nächsten Generation für hochkarätige Umsiedlungen.">A next-generation awareness and authentication platform for high-tier relocation.</p>
+  <h1 class="lang" data-en="Community Safety Portal" data-de="Gemeinschaftssicherheitsportal">Community Safety Portal</h1>
+  <p class="lang" data-en="A next-generation awareness platform for secure, localized incident reporting and threat mitigation." data-de="Eine Awareness-Plattform der nächsten Generation für sichere, lokalisierte Vorfallsmeldungen und Bedrohungsabwehr.">A next-generation awareness platform for secure, localized incident reporting and threat mitigation.</p>
   <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-    <a href="login.html" class="btn btn-primary lang" data-en="Get Started" data-de="Anfangen">Get Started</a>
-    <a href="register.html" class="btn btn-secondary lang" data-en="Create Account" data-de="Konto erstellen">Create Account</a>
-  </div>
-</section>
-
-<section class="section">
-  <div style="text-align: center; margin-bottom: 60px;">
-    <h2 class="lang" data-en="Your Relocation Journey" data-de="Ihre Umsiedlungsreise" style="font-size: 2.5rem;">Your Relocation Journey</h2>
-    <p class="lang" data-en="A streamlined, three-step process to secure your new life in Austria." data-de="Ein optimierter, dreistufiger Prozess zur Sicherung Ihres neuen Lebens in Österreich.">A streamlined, three-step process to secure your new life in Austria.</p>
-  </div>
-
-  <div class="features">
-    <div class="feature">
-      <h3 class="lang" data-en="1. Initial Assessment" data-de="1. Ersteinschätzung">1. Initial Assessment</h3>
-      <p class="lang" data-en="We evaluate your qualifications, goals, and eligibility for various Austrian visa types." data-de="Wir bewerten Ihre Qualifikationen, Ziele und Berechtigung für verschiedene österreichische Visatypen.">We evaluate your qualifications, goals, and eligibility for various Austrian visa types.</p>
-    </div>
-    <div class="feature">
-      <h3 class="lang" data-en="2. Legal Preparation" data-de="2. Rechtliche Vorbereitung">2. Legal Preparation</h3>
-      <p class="lang" data-en="Our team assists in compiling, translating, and authenticating all necessary paperwork." data-de="Unser Team unterstützt Sie bei der Zusammenstellung, Übersetzung und Beglaubigung aller notwendigen Unterlagen.">Our team assists in compiling, translating, and authenticating all necessary paperwork.</p>
-    </div>
-    <div class="feature">
-      <h3 class="lang" data-en="3. Arrival & Settlement" data-de="3. Ankunft & Niederlassung">3. Arrival & Settlement</h3>
-      <p class="lang" data-en="We handle the application process and provide on-the-ground support once you arrive." data-de="Wir übernehmen den Bewerbungsprozess und bieten Unterstützung vor Ort, sobald Sie ankommen.">We handle the application process and provide on-the-ground support once you arrive.</p>
-    </div>
-  </div>
-
-  <div class="eval-card">
-    <h3 class="lang" data-en="Profile Evaluation" data-de="Profilbewertung">Profile Evaluation</h3>
-    <p class="lang" data-en="Submit your CV and Motivation Letter for a legal review by our expert team." data-de="Reichen Sie Ihren Lebenslauf und Ihr Motivationsschreiben zur rechtlichen Prüfung durch unser Expertenteam ein.">Submit your CV and Motivation Letter for a legal review by our expert team.</p>
-    <br>
-    <a href="mailto:immigration@austrian-immigration.com?subject=Profile Evaluation Request" 
-       class="btn btn-primary lang" 
-       data-en="Submit My Documents" 
-       data-de="Meine Dokumente einreichen">
-       Submit My Documents
-    </a>
+    <a href="login.html" class="btn btn-primary lang" data-en="Secure Login" data-de="Sicherer Login">Secure Login</a>
+    <a href="register.html" class="btn btn-secondary lang" data-en="Join Network" data-de="Netzwerk beitreten">Join Network</a>
   </div>
 </section>
 
 <section class="section" id="about" style="background: white;">
     <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        <h2 class="lang" data-en="Why Choose Austria?" data-de="Warum Österreich wählen?">Why Choose Austria?</h2>
-        <p class="lang" data-en="Consistently ranked as one of the best places to live and work globally." data-de="Zählt weltweit durchgehend zu den besten Orten zum Leben und Arbeiten.">Consistently ranked as one of the best places to live and work globally.</p>
+        <h2 class="lang" data-en="Strengthening Community Resilience" data-de="Stärkung der Widerstandsfähigkeit der Gemeinschaft">Strengthening Community Resilience</h2>
+        <p class="lang" data-en="A pro-active approach to localized safety through verified intelligence." data-de="Ein proaktiver Ansatz für lokale Sicherheit durch verifizierte Informationen.">A pro-active approach to localized safety through verified intelligence.</p>
         
         <div class="features" style="margin-top: 50px;">
             <div class="feature">
-                <h4 class="lang" data-en="🌍 Central European Hub" data-de="🌍 Zentraleuropäischer Knotenpunkt">🌍 Central European Hub</h4>
-                <p class="lang" data-en="Access to the entire EU market with world-class infrastructure." data-de="Zugang zum gesamten EU-Markt mit erstklassiger Infrastruktur.">Access to the entire EU market with world-class infrastructure.</p>
+                <h4 class="lang" data-en="🔍 Localized Trend Analysis" data-de="🔍 Lokalisierte Trendanalyse">🔍 Localized Trend Analysis</h4>
+                <p class="lang" data-en="Identify emerging crime patterns down to the street level for targeted prevention." data-de="Identifizieren Sie aufkommende Kriminalitätsmuster bis auf Straßenebene für eine gezielte Prävention.">Identify emerging crime patterns down to the street level for targeted prevention.</p>
             </div>
             <div class="feature">
-                <h4 class="lang" data-en="🛡️ High Quality of Life" data-de="🛡️ Hohe Lebensqualität">🛡️ High Quality of Life</h4>
-                <p class="lang" data-en="Vienna is frequently named the world's most livable city." data-de="Wien wird häufig als die lebenswerteste Stadt der Welt ausgezeichnet.">Vienna is frequently named the world's most livable city.</p>
+                <h4 class="lang" data-en="🛡️ Pro-active Mitigation" data-de="🛡️ Proaktive Eindämmung">🛡️ Pro-active Mitigation</h4>
+                <p class="lang" data-en="Utilize verified data to address vulnerabilities before they are exploited." data-de="Nutzen Sie verifizierte Daten, um Schwachstellen zu beheben, bevor sie ausgenutzt werden.">Utilize verified data to address vulnerabilities before they are exploited.</p>
             </div>
             <div class="feature">
-                <h4 class="lang" data-en="📈 Strong Economy" data-de="📈 Starke Wirtschaft">📈 Strong Economy</h4>
-                <p class="lang" data-en="Robust industries, social security, and excellent healthcare." data-de="Robuste Industrien, soziale Sicherheit und hervorragende Gesundheitsversorgung.">Robust industries, social security, and excellent healthcare.</p>
+                <h4 class="lang" data-en="🤝 Neighbourhood Collab" data-de="🤝 Nachbarschaftszusammenarbeit">🤝 Neighbourhood Collab</h4>
+                <p class="lang" data-en="Foster secure communication between citizens and investigators for rapid response." data-de="Fördern Sie die sichere Kommunikation zwischen Bürgern und Ermittlern für eine schnelle Reaktion.">Foster secure communication between citizens and investigators for rapid response.</p>
             </div>
         </div>
 
         <div class="consultation-section" style="max-width: 800px; margin: 80px auto 0;">
-            <h3 class="lang" data-en="📅 Ready to take the next step?" data-de="📅 Bereit für den nächsten Schritt?" style="margin-top: 0; color: var(--secondary);">📅 Ready to take the next step?</h3>
-            <p class="lang" data-en="Book a priority consultation with our senior immigration advisors today." data-de="Buchen Sie noch heute eine prioritäre Beratung mit unseren erfahrenen Einwanderungsberatern." style="color: #475569; margin-bottom: 25px;">Book a priority consultation with our senior immigration advisors today.</p>
-            <a href="mailto:info@austrian-immigration.com" class="btn btn-primary lang" data-en="Schedule a Call →" data-de="Einen Anruf vereinbaren →">Schedule a Call →</a>
+            <h3 class="lang" data-en="🚨 Ready to make an impact?" data-de="🚨 Bereit, etwas zu bewirken?" style="margin-top: 0; color: var(--secondary);">🚨 Ready to make an impact?</h3>
+            <p class="lang" data-en="Your vigilance and collaboration are our strongest assets in building a safer community." data-de="Ihre Wachsamkeit und Zusammenarbeit sind unser stärkstes Kapital beim Aufbau einer sichereren Gemeinschaft." style="color: #475569; margin-bottom: 25px;">Your vigilance and collaboration are our strongest assets in building a safer community.</p>
+            <a href="register.html" class="btn btn-primary lang" data-en="Join our Community Intel Network →" data-de="Treten Sie unserem Intel-Netzwerk bei →">Join our Community Intel Network →</a>
         </div>
     </div>
 </section>
 
 <footer>
   <div style="max-width: 1200px; margin: auto; text-align: center;">
-    <h3>SSK Portal Austria</h3>
-    <p class="lang" data-en="Official Awareness Platform" data-de="Offizielle Bewusstseinsplattform">Official Awareness Platform</p>
+    <h3>SSK Portal</h3>
+    <p class="lang" data-en="Official Community Awareness Platform" data-de="Offizielle Plattform für das Bewusstsein der Gemeinschaft">Official Community Awareness Platform</p>
     <div style="margin: 30px 0;">
-      <a href="jobs.html" class="lang" data-en="Careers" data-de="Karriere">Careers</a> | 
-      <a href="terms.html" class="lang" data-en="Terms" data-de="Bedingungen">Terms</a> | 
-      <a href="fullmacht.html" class="lang" data-en="Fullmacht" data-de="Vollmacht">Fullmacht</a>
+      <a href="terms.html" class="lang" data-en="Terms & Conditions" data-de="Allgemeine Geschäftsbedingungen">Terms & Conditions</a> | 
+      <a href="privacy.html" class="lang" data-en="Privacy Policy" data-de="Datenschutz-Bestimmungen">Privacy Policy</a>
     </div>
     <div style="font-size: 12px; opacity: 0.5; border-top: 1px solid #1e293b; padding-top: 20px;">
-      <p>© 2026 Austrian Immigration SSK Portal.</p>
-      <p>info@austrian-immigration.com</p>
+      <p class="lang" data-en="© 2026 SSK Portal. All Rights Reserved. | Managed for Security & Research Purposes" data-de="© 2026 SSK Portal. Alle Rechte vorbehalten. | Verwaltet zu Sicherheits- und Forschungszwecken">© 2026 SSK Portal. All Rights Reserved. | Managed for Security & Research Purposes</p>
     </div>
   </div>
 </footer>
